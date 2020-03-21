@@ -30,3 +30,14 @@ func (a *CheckingAccount) Withdraw(value float64) (float64, error) {
 
 	return a.Balance, nil
 }
+
+// Deposit operation
+func (a *CheckingAccount) Deposit(value float64) (float64, error) {
+	if value < 0 {
+		return 0., errors.New("Invalid value in Deposit")
+	}
+
+	a.Balance += value
+
+	return a.Balance, nil
+}
